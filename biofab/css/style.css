@@ -95,7 +95,7 @@ ul, ol { list-style: none; }
 .nav-links { display: flex; align-items: center; gap: .25rem; }
 .nav-link {
   padding: .45rem .9rem;
-  font-size: clamp(0.85rem, 1vw, 1.1rem)
+  font-size: clamp(0.85rem, 1vw, 1.1rem);
   font-weight: 400; color: var(--text2);
   border-radius: 6px;
   transition: color .2s, background .2s;
