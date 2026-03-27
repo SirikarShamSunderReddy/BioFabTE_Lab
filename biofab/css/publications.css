@@ -1,0 +1,100 @@
+/* ═══════════════════════════════════════════════════
+   BioFabTE — publications.css
+   Publications & Patents page-specific styles
+   ═══════════════════════════════════════════════════ */
+
+/* ══════════════════════════════════════════════════
+   PUBLICATION TABS
+══════════════════════════════════════════════════ */
+.pub-tabs {
+  display: flex; gap: .5rem; margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1px;
+}
+.pub-tab {
+  padding: .55rem 1.2rem;
+  font-size: .875rem; color: var(--text2);
+  background: none; border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer; transition: color .2s, border-color .2s;
+  margin-bottom: -1px;
+}
+.pub-tab:hover { color: var(--text); }
+.pub-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+.pub-section { display: none; }
+.pub-section.active { display: block; }
+
+/* ══════════════════════════════════════════════════
+   PUBLICATION LIST
+══════════════════════════════════════════════════ */
+.pub-list { display: flex; flex-direction: column; gap: 1.25rem; }
+.pub-item {
+  padding: 1.5rem;
+  border: 1px solid var(--border); border-radius: var(--r-lg);
+  background: var(--card);
+  transition: border-color .25s, background .25s;
+  display: grid; grid-template-columns: 40px 1fr;
+  gap: 1rem; align-items: start;
+}
+.pub-item:hover { border-color: var(--border2); background: var(--card2); }
+.pub-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .8rem; color: var(--text3);
+  padding-top: .1rem; text-align: right;
+}
+.pub-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem; font-weight: 600; color: var(--text);
+  margin-bottom: .4rem; line-height: 1.35;
+}
+.pub-authors { font-size: .8rem; color: var(--text2); margin-bottom: .5rem; line-height: 1.5; }
+.pub-authors strong { color: var(--text); font-weight: 500; }
+.pub-meta { display: flex; gap: .5rem; flex-wrap: wrap; align-items: center; }
+.pub-journal { font-size: .78rem; font-style: italic; color: var(--accent); }
+.pub-year {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .72rem; color: var(--text3);
+}
+
+/* ══════════════════════════════════════════════════
+   PATENT LIST
+══════════════════════════════════════════════════ */
+.patent-list { display: flex; flex-direction: column; gap: 1rem; }
+.patent-item {
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--border); border-radius: var(--r);
+  background: var(--card); display: grid;
+  grid-template-columns: 40px 1fr; gap: 1rem; align-items: start;
+  transition: border-color .2s;
+}
+.patent-item:hover { border-color: var(--border2); }
+.patent-title {
+  font-size: .92rem; font-weight: 500; color: var(--text);
+  margin-bottom: .3rem; line-height: 1.4;
+}
+.patent-inventors { font-size: .8rem; color: var(--text2); margin-bottom: .4rem; }
+.patent-app {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .7rem; color: var(--text3); letter-spacing: .03em;
+}
+
+/* ══════════════════════════════════════════════════
+   GOOGLE SCHOLAR CTA
+══════════════════════════════════════════════════ */
+.scholar-cta {
+  margin-top: 2rem; padding: 1.5rem 2rem;
+  border: 1px solid var(--border-accent);
+  border-radius: var(--r-lg); background: var(--accent-dim);
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+}
+.scholar-cta p { font-size: .9rem; color: var(--text2); }
+.scholar-cta p strong { color: var(--text); font-weight: 500; }
+
+/* ══════════════════════════════════════════════════
+   RESPONSIVE — PUBLICATIONS
+══════════════════════════════════════════════════ */
+@media (max-width: 700px) {
+  .pub-item    { grid-template-columns: 30px 1fr; }
+  .patent-item { grid-template-columns: 30px 1fr; }
+  .scholar-cta { flex-direction: column; align-items: flex-start; }
+}

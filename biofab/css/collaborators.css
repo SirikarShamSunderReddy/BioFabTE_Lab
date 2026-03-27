@@ -1,0 +1,71 @@
+/* ═══════════════════════════════════════════════════
+   BioFabTE — collaborators.css
+   Collaborators page-specific styles
+   ═══════════════════════════════════════════════════ */
+
+/* ══════════════════════════════════════════════════
+   COLLABORATOR CARDS
+══════════════════════════════════════════════════ */
+.collab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+.collab-card {
+  padding: 1.5rem; background: var(--card);
+  border: 1px solid var(--border); border-radius: var(--r-lg);
+  display: flex; flex-direction: column;
+  transition: border-color .25s, transform .25s;
+  text-align: center;
+  align-items: center; justify-content: center;
+}
+.collab-card:hover { border-color: var(--border2); transform: translateY(-2px); }
+.collab-photo {
+  width: 100px; height: 100px; border-radius: 50%;
+  object-fit: cover; margin-bottom: 1rem;
+  border: 2px solid var(--border2);
+}
+.collab-name { font-size: .95rem; font-weight: 500; color: var(--text); margin-bottom: .2rem; }
+.collab-role { font-size: .8rem; color: var(--accent); margin-bottom: .2rem; }
+.collab-inst { font-size: .78rem; color: var(--text2); }
+
+/* ══════════════════════════════════════════════════
+   INDUSTRY PARTNERS
+══════════════════════════════════════════════════ */
+.industry-grid { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.industry-card {
+  padding: 1.25rem 2rem; background: var(--card);
+  border: 1px solid var(--border); border-radius: var(--r);
+  font-size: .9rem; font-weight: 500; color: var(--text2);
+  transition: border-color .2s, color .2s;
+}
+.industry-card:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ══════════════════════════════════════════════════
+   FUNDING LOGOS
+══════════════════════════════════════════════════ */
+.funding-section {
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+}
+.funding-logo-wrap { display: flex; flex-wrap: wrap; gap: 1rem; }
+.funding-logo-item {
+  padding: .875rem 1.5rem;
+  background: var(--card);
+  border: 1px solid var(--border); border-radius: var(--r);
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color .2s, background .2s;
+  min-width: 110px;
+}
+.funding-logo-item:hover { border-color: var(--border2); background: var(--card2); }
+.funding-logo-item img {
+  height: 38px; object-fit: contain;
+  filter: brightness(.8) grayscale(.15);
+  transition: filter .25s;
+}
+.funding-logo-item:hover img { filter: brightness(1) grayscale(0); }
+.funding-name {
+  font-size: .78rem; font-weight: 500; color: var(--text2);
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: .04em;
+}

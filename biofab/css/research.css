@@ -1,0 +1,169 @@
+/* ═══════════════════════════════════════════════════
+   BioFabTE — research.css
+   Research page-specific styles
+   ═══════════════════════════════════════════════════ */
+
+/* ══════════════════════════════════════════════════
+   HERO BG IMAGE
+══════════════════════════════════════════════════ */
+.research-hero-img {
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    url('https://sirikarshamsunderreddy.github.io/BioFabTE/Biofab_Web/Media/hero-poster.jpg')
+    center/cover no-repeat;
+  opacity: .07;
+}
+
+/* ══════════════════════════════════════════════════
+   RESEARCH ALTERNATING SECTIONS
+══════════════════════════════════════════════════ */
+.research-section {
+  padding: 4rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.research-inner {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 3.5rem; align-items: center;
+}
+.research-inner.reverse { direction: rtl; }
+.research-inner.reverse > * { direction: ltr; }
+
+.research-img-wrap {
+  position: relative; border-radius: var(--r-xl); overflow: hidden;
+  border: 1px solid var(--border);
+  aspect-ratio: 4/3;
+}
+.research-img-wrap img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform .6s ease;
+}
+.research-img-wrap:hover img { transform: scale(1.04); }
+.research-img-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(7,9,15,.5) 0%, transparent 60%);
+}
+
+/* ══════════════════════════════════════════════════
+   RESEARCH CARDS (grid)
+══════════════════════════════════════════════════ */
+.research-card {
+  overflow: hidden; border-radius: var(--r-lg);
+  border: 1px solid var(--border);
+  background: var(--card);
+  transition: border-color .25s, transform .3s, box-shadow .3s;
+}
+.research-card:hover {
+  border-color: var(--border-accent);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,.4), 0 0 0 1px var(--border-accent);
+}
+.research-img {
+  width: 100%; height: 220px; object-fit: cover;
+  transition: transform .5s ease;
+}
+.research-card:hover .research-img { transform: scale(1.04); }
+.research-body { padding: 1.5rem; }
+.research-body h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem; font-weight: 600;
+  color: var(--text); margin-bottom: .6rem;
+}
+.research-body p { font-size: .875rem; color: var(--text2); line-height: 1.7; }
+
+/* ══════════════════════════════════════════════════
+   VIDEO FEATURE CARDS
+══════════════════════════════════════════════════ */
+.video-card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.video-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  transition: border-color .25s, transform .25s, box-shadow .25s;
+}
+.video-card:hover {
+  border-color: var(--border-accent);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 48px rgba(0,0,0,.4);
+}
+
+/* 16:9 responsive iframe wrapper */
+.video-embed-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  background: #000;
+  overflow: hidden;
+}
+.video-embed-wrap iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: none;
+  display: block;
+}
+
+.video-card-body {
+  padding: 1.25rem 1.5rem 1.5rem;
+}
+.video-card-body h3 {
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: .5rem;
+  line-height: 1.4;
+}
+.video-card-body p {
+  font-size: .82rem;
+  color: var(--text2);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ══════════════════════════════════════════════════
+   MEDIA COVERAGE
+══════════════════════════════════════════════════ */
+.media-section {
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+}
+.media-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.media-card {
+  padding: 1.5rem;
+  border: 1px solid var(--border); border-radius: var(--r-lg);
+  background: var(--card);
+  transition: border-color .25s;
+}
+.media-card:hover { border-color: var(--border2); }
+.media-source {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .7rem; letter-spacing: .1em;
+  color: var(--accent); margin-bottom: .6rem; text-transform: uppercase;
+}
+.media-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem; font-weight: 600; color: var(--text);
+  margin-bottom: .5rem; line-height: 1.3;
+}
+.media-card p { font-size: .85rem; color: var(--text2); line-height: 1.6; margin-bottom: 1rem; }
+.media-card a {
+  font-size: .8rem; color: var(--accent);
+  display: inline-flex; align-items: center; gap: .35rem;
+  transition: gap .2s;
+}
+.media-card a:hover { gap: .55rem; }
+
+/* ══════════════════════════════════════════════════
+   RESPONSIVE — RESEARCH
+══════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .research-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .research-inner.reverse { direction: ltr; }
+  .media-grid { grid-template-columns: 1fr; }
+  .video-card-grid { grid-template-columns: 1fr; }
+}

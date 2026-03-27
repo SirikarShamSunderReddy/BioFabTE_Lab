@@ -1,0 +1,302 @@
+/* ═══════════════════════════════════════════════════
+   BioFabTE — team.css
+   Team page styles: PI section, Glassmorphic Flip Cards,
+   uniform sizing, mobile-tap support
+   ═══════════════════════════════════════════════════ */
+
+/* ══════════════════════════════════════════════════
+   PRINCIPAL INVESTIGATOR
+══════════════════════════════════════════════════ */
+.pi-section {
+  display: grid; grid-template-columns: 280px 1fr;
+  gap: 3rem; align-items: start;
+}
+.pi-photo-wrap { position: relative; }
+.pi-photo {
+  width: 100%; aspect-ratio: 4/5; object-fit: cover;
+  border-radius: var(--r-xl); border: 1px solid var(--border2);
+}
+.pi-photo-accent {
+  position: absolute; inset: -4px;
+  border-radius: calc(var(--r-xl) + 4px);
+  border: 1px solid var(--border-accent);
+  pointer-events: none;
+}
+.pi-info h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem; font-weight: 600; color: var(--text);
+  margin-bottom: .2rem;
+}
+.pi-info .pi-title {
+  font-size: .9rem; color: var(--accent); margin-bottom: 1.25rem;
+  letter-spacing: .01em;
+}
+.pi-bio {
+  font-size: .9rem; color: var(--text2); line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+.pi-bio p { margin-bottom: .75rem; }
+.pi-bio p:last-child { margin-bottom: 0; }
+.pi-links { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: 1.25rem; }
+.pi-link {
+  display: inline-flex; align-items: center; gap: .4rem;
+  font-size: .8rem; color: var(--text2);
+  padding: .35rem .75rem;
+  border: 1px solid var(--border); border-radius: 6px;
+  transition: color .2s, border-color .2s;
+}
+.pi-link:hover { color: var(--accent); border-color: var(--border-accent); }
+.pi-link svg { width: 13px; height: 13px; }
+
+.pi-awards { margin-top: 1.25rem; }
+.pi-award-item {
+  display: flex; align-items: flex-start; gap: .6rem;
+  font-size: .85rem; color: var(--text2);
+  padding: .5rem 0; border-bottom: 1px solid var(--border);
+  line-height: 1.5;
+}
+.pi-award-item:last-child { border-bottom: none; }
+.pi-award-item::before {
+  content: '◆'; font-size: .5rem; color: var(--accent);
+  flex-shrink: 0; margin-top: .35rem;
+}
+
+/* ══════════════════════════════════════════════════
+   SECTION TITLE
+══════════════════════════════════════════════════ */
+.team-section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem; font-weight: 600; color: var(--text);
+  margin-bottom: 1.5rem;
+  padding-bottom: .75rem;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: .75rem;
+}
+.team-section-title .count {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .75rem; color: var(--accent);
+  background: var(--accent-dim); padding: .15rem .5rem; border-radius: 4px;
+}
+
+/* ══════════════════════════════════════════════════
+   TEAM GRIDS
+══════════════════════════════════════════════════ */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.25rem;
+}
+
+/* ══════════════════════════════════════════════════
+   GLASSMORPHIC FLIP CARD SYSTEM
+   ─────────────────────────────────────────────────
+   • All cards identical height (310px) front & back
+   • Desktop: flips on :hover
+   • Mobile:  flips on .is-flipped (JS click toggle)
+   • Front — image + name + badge
+   • Back  — research, bio, email (accent glass)
+══════════════════════════════════════════════════ */
+
+/* ── Card-in animation — replaces .reveal so transform never
+   breaks preserve-3d on the inner wrapper ── */
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Container: establishes 3-D perspective */
+.flip-card {
+  height: 310px;
+  perspective: 1200px;
+  cursor: pointer;
+  /* Own fade-in — NOT .reveal — so no transform sits on the
+     perspective parent which would flatten the 3D children   */
+  animation: cardIn .55s ease both;
+}
+
+/* Stagger: nth-child so the grid flows in smoothly */
+.team-grid .flip-card:nth-child(1),
+.staff-grid .flip-card:nth-child(1) { animation-delay: .05s; }
+.team-grid .flip-card:nth-child(2),
+.staff-grid .flip-card:nth-child(2) { animation-delay: .10s; }
+.team-grid .flip-card:nth-child(3),
+.staff-grid .flip-card:nth-child(3) { animation-delay: .15s; }
+.team-grid .flip-card:nth-child(4),
+.staff-grid .flip-card:nth-child(4) { animation-delay: .20s; }
+.team-grid .flip-card:nth-child(5),
+.staff-grid .flip-card:nth-child(5) { animation-delay: .25s; }
+.team-grid .flip-card:nth-child(6),
+.staff-grid .flip-card:nth-child(6) { animation-delay: .30s; }
+.team-grid .flip-card:nth-child(n+7),
+.staff-grid .flip-card:nth-child(n+7) { animation-delay: .35s; }
+
+/* Inner wrapper: rotates on hover/click */
+.flip-card-inner {
+  width: 100%; height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform .65s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Desktop hover flip */
+@media (hover: hover) {
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+}
+
+/* Mobile click flip */
+.flip-card.is-flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Both faces: fill the card exactly, equal size guaranteed */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* ── FRONT ────────────────────────────────────── */
+.flip-card-front {
+  background:
+    linear-gradient(
+      160deg,
+      rgba(0, 200, 150, .045) 0%,
+      rgba(10, 16, 28, .82)  50%,
+      rgba(0, 200, 150, .02) 100%
+    );
+  backdrop-filter: blur(24px) saturate(1.5);
+  -webkit-backdrop-filter: blur(24px) saturate(1.5);
+  border: 1px solid rgba(0, 200, 150, .14);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.07),
+    inset 0 -1px 0 rgba(0,0,0,.25),
+    0 4px 28px rgba(0,0,0,.45);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  gap: .75rem;
+  /* No ::before hairline — that was causing the inter-row line */
+}
+
+.flip-card-photo {
+  width: 175px; height: 175px; border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(0, 200, 150, .3);
+  box-shadow: 0 0 0 4px rgba(0, 200, 150, .07);
+  flex-shrink: 0;
+}
+.flip-card-name {
+  font-size: .9rem; font-weight: 500; color: var(--text);
+  line-height: 1.3;
+}
+.flip-card-badge {
+  /* reuse .badge styles but also apply inline */
+}
+/* Tap hint on mobile */
+.flip-card-hint {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .6rem; letter-spacing: .12em;
+  color: var(--text3); text-transform: uppercase;
+  position: absolute; bottom: .75rem;
+  display: none;
+}
+
+/* ── BACK ─────────────────────────────────────── */
+.flip-card-back {
+  background:
+    linear-gradient(
+      160deg,
+      rgba(0, 200, 150, .06) 0%,
+      rgba(8, 13, 22, .84)   50%,
+      rgba(0, 200, 150, .03) 100%
+    );
+  backdrop-filter: blur(24px) saturate(1.5);
+  -webkit-backdrop-filter: blur(24px) saturate(1.5);
+  border: 1px solid rgba(0, 200, 150, .16);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.07),
+    inset 0 -1px 0 rgba(0,0,0,.25),
+    0 4px 28px rgba(0,0,0,.45);
+  /* rotateY flips it; no extra translateZ needed since we removed
+     the shared translateZ(0) that was flattening the 3D context */
+  transform: rotateY(180deg);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 1.25rem 1.1rem;
+  text-align: center;
+  gap: .5rem;
+  /* position: relative needed for ::before pseudo */
+  position: absolute;
+}
+.flip-card-back-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem; font-weight: 600; color: var(--text);
+  line-height: 1.2; margin-bottom: .15rem;
+}
+.flip-card-back-role {
+  font-size: .72rem; color: var(--accent);
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: .06em; margin-bottom: .35rem;
+}
+.flip-card-back-research {
+  font-size: .78rem; color: var(--text2);
+  line-height: 1.5;
+  padding: .4rem .6rem;
+  background: rgba(0,200,150,.06);
+  border: 1px solid rgba(0,200,150,.12);
+  border-radius: 6px;
+  width: 100%;
+}
+.flip-card-back-bio {
+  font-size: .75rem; color: var(--text3);
+  line-height: 1.55; max-height: 62px; overflow: hidden;
+}
+.flip-card-back-email {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .65rem; color: var(--accent);
+  letter-spacing: .04em;
+  word-break: break-all;
+  margin-top: .2rem;
+}
+.flip-card-back-email a { color: var(--accent); }
+.flip-card-back-email a:hover { text-decoration: underline; }
+
+/* ══════════════════════════════════════════════════
+   ALUMNI
+══════════════════════════════════════════════════ */
+.alumni-grid { display: flex; flex-wrap: wrap; gap: .5rem; }
+.alumni-tag {
+  padding: .3rem .85rem;
+  background: var(--bg3); border: 1px solid var(--border);
+  border-radius: 20px; font-size: .8rem; color: var(--text2);
+}
+
+/* ══════════════════════════════════════════════════
+   RESPONSIVE — TEAM
+══════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .pi-section { grid-template-columns: 1fr; gap: 2rem; }
+  .pi-photo-wrap { max-width: 240px; }
+}
+@media (max-width: 700px) {
+  .flip-card { height: 290px; }
+  .flip-card-hint { display: block; }
+  .flip-card-photo { width: 78px; height: 78px; }
+  .team-grid,
+  .staff-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+}
+@media (max-width: 400px) {
+  .team-grid,
+  .staff-grid { grid-template-columns: repeat(2, 1fr); }
+}
