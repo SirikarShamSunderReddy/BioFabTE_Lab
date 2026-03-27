@@ -383,7 +383,6 @@ footer {
 ══════════════════════════════════════════════════ */
 @media (max-width: 900px) {
   .footer-grid { grid-template-columns: 1fr 1fr; }
-  .nav-link{font-size: 0.65rem;}
 }
 @media (max-width: 700px) {
   .nav-links  { display: none; }
@@ -394,5 +393,4 @@ footer {
   .container  { padding: 0 1.25rem; }
   .section    { padding: 3.5rem 0; }
   .join-banner{ padding: 1.75rem; }
-  .nav-link{ font-size: 0.5rem;}
 }
