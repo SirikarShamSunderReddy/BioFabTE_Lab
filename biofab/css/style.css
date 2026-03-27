@@ -75,7 +75,7 @@ ul, ol { list-style: none; }
 .nav.scrolled { background: rgba(7,9,15,.92); }
 .nav-brand {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.3rem, 2vw, 1.6rem);
+  font-size: clamp(1rem, 2vw, 1.6rem);
   font-weight: 600; color: var(--text);
   margin-bottom: .5rem;
   display: flex; align-items: center; gap: 24px;
@@ -382,7 +382,8 @@ footer {
 ══════════════════════════════════════════════════ */
 @media (max-width: 900px) {
   .footer-grid { grid-template-columns: 1fr 1fr; }
-  .nav-link{font-size: 0.85rem;}
+  .nav-link{font-size: 0.8rem;}
+  .nav-brand{font-size: 1rem;}
 }
 @media (max-width: 700px) {
   .nav-links  { display: none; }
@@ -393,5 +394,6 @@ footer {
   .container  { padding: 0 1.25rem; }
   .section    { padding: 3.5rem 0; }
   .join-banner{ padding: 1.75rem; }
-  .nav-link{ font-size: 0.65rem;}
+  .nav-link{ font-size: 0.5rem;}
+  .nav-brand{font-size: 1rem;}
 }
