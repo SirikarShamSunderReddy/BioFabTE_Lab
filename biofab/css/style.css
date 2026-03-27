@@ -75,7 +75,8 @@ ul, ol { list-style: none; }
 .nav.scrolled { background: rgba(7,9,15,.92); }
 .nav-brand {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.50rem; font-weight: 600; color: var(--text);
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  font-weight: 600; color: var(--text);
   margin-bottom: .5rem;
   display: flex; align-items: center; gap: 24px;
   letter-spacing: 0.4rem;
@@ -94,7 +95,8 @@ ul, ol { list-style: none; }
 .nav-links { display: flex; align-items: center; gap: .25rem; }
 .nav-link {
   padding: .45rem .9rem;
-  font-size: 1.0rem; font-weight: 400; color: var(--text2);
+  font-size: clamp(0.85rem, 1vw, 1.1rem)
+  font-weight: 400; color: var(--text2);
   border-radius: 6px;
   transition: color .2s, background .2s;
   position: relative; letter-spacing: .01em;
