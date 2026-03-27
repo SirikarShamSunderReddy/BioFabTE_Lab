@@ -75,7 +75,8 @@ ul, ol { list-style: none; }
 .nav.scrolled { background: rgba(7,9,15,.92); }
 .nav-brand {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.3rem, 2vw, 1.6rem);
+  /*font-size: clamp(1.3rem, 2vw, 1.6rem);*/
+  font-size: 1.5rem;
   font-weight: 600; color: var(--text);
   margin-bottom: .5rem;
   display: flex; align-items: center; gap: 24px;
