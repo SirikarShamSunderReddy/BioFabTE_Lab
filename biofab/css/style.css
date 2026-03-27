@@ -380,6 +380,8 @@ footer {
 ══════════════════════════════════════════════════ */
 @media (max-width: 900px) {
   .footer-grid { grid-template-columns: 1fr 1fr; }
+  .nav-link{font-size: 0.75rem; }
+  .nav-brand{font-size: 1.25rem}
 }
 @media (max-width: 700px) {
   .nav-links  { display: none; }
