@@ -80,6 +80,7 @@ ul, ol { list-style: none; }
   font-weight: 600; color: var(--text);
   margin-bottom: .5rem;
   display: flex; align-items: center; gap: 24px;
+  white-space: nowrap;
   letter-spacing: 0.4rem;
 }
 .nav-brand-dot {
